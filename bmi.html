@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>BMI Calculation Page</title>
+<style>
+#left {
+float:left;
+}
+</style>
+<script type="text/javascript">
+function calculateBmi(){
+var weight = document.bmiForm.weight.value;
+var height = document.bmiForm.height.value;
+if(weight > 0 && height > 0){
+var finalBmi = weight/(height/100*height/100);
+document.bmiForm.bmi.value = finalBmi;
+if(finalBmi < 18.5){
+document.bmiForm.meaning.value = "That you are too thin.";
+}
+if(finalBmi > 18.5 && finalBmi < 25){
+document.bmiForm.meaning.value = "That you are healthy.";
+}
+if(finalBmi > 25){
+document.bmiForm.meaning.value = "That you have overweight.";
+}
+}
+else{
+alert("Please Fill in everything correctly");
+}
+}
+</script>
+</head>
+<body bgcolor="#63738a">
+<img id="left" src="bmiimg.jpg" alt="HTML5 Icon" width="600" height="600">
+<center><h1>BODY MASS INDEX<h1></center>
+<p><center><h3> Body mass index is a number that reflects body weight adjusted for height.<br><br>
+ Normal values are 18.5-24.9. Values of 25-29.9 are considered overweight.<br><br>
+  Values of 30 or higher are considered obese.<br>
+</h3></center></p>
+<form name="bmiForm">
+<center><br><br>
+<input type="text" name="weight" placeholder="Enter Your Weight in Kg"/><br><br>
+<input type="text" name="height" placeholder="Enter Your Height in cm"/><br><br>
+<input type="button" value="calculate BMI" onclick="calculateBmi()"><br><br>
+<b>Your BMI:</b><input type="text" name="bmi" size="10"><br><br>
+<b>This Means:</b> <input type="text" name="meaning" size="25"><br><br>
+<input type="reset" value="reset">
+
+</center> 
+</form>
+
+</body>
+</html>

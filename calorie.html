@@ -1,0 +1,60 @@
+<html>
+<head>
+
+<title>Maintenance calories</title>
+<style>
+#left {
+float:left;
+}
+</style>
+<script type="text/javascript">
+function calculatecal(){
+
+var weight = document.mcfm.weight.value;
+var height = document.mcfm.height.value;
+if(weight > 0 && height > 0){
+var age = document.mcfm.age.value;
+var gender = document.mcfm.gender.value;
+
+
+if (gender=="male") {
+		document.mcfm.mcal.value = (88.362+(13.397*weight)+(4.799*height)-(5.677*age))*1.5; 
+	} 
+if (gender=="female") {
+		document.mcfm.mcal.value = (447.593+(9.247*weight)+(3.098*height)-(4.330*age))*1.5; 
+	}
+
+}
+else{
+alert("Please Fill in everything correctly");
+}
+}
+</script>
+</head>
+
+<body bgcolor="#63738a">
+<img id="left" src="calorie.jpg" alt="HTML5 Icon" width="600" height="600">
+<center> <h1>Maintenance calories</h1></center>
+<p><center><h3>This maintenance calorie calculator allows you to calculate how many calories your body needs to maintain your current weight.
+  </h3></center></p>
+  <form name="mcfm" method=post>
+<center><br><br>
+<input type="number" name="weight" placeholder="Enter Your Weight in Kg"/><br><br>
+<input type="number" name="height" placeholder="Enter Your Height in cm"/><br><br>
+<input type="number" name="age" placeholder="Enter Your age in yrs"/><br><br>
+ <label for="gender">gender:</label>
+<select id="gender" name="gender">
+  <option value="male">male</option>
+  <option value="female">female</option>
+  
+</select> <br><br>
+<input type="button" name="calculate maintenance cal" value="calculate calories" onClick="calculatecal()"><br><br>
+<b>Your maintenance calories:</b><input type="number" name="mcal" size="10"><br><br>
+
+<input type="reset" value="reset">
+
+</center> 
+</form>
+
+</body>
+</html>
